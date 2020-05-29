@@ -6,6 +6,20 @@
   // TODO: build the swim command fetcher here
   //
 
+  const commandFetcher = (cb) => {
+    $.ajax({
+      type: 'GET',
+      url: serverUrl + '/random',
+      data: 'string', //fix this value
+      success: (response) => {
+        console.log(response)
+      },
+      error: (err) =>{
+        console.log("Your Request Failed Robin, you are a garbage coder!")
+      }
+    })
+  }
+
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
@@ -17,7 +31,7 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: serverUrl, //changed from 'FILL_ME_IN'
       cache: false,
       contentType: false,
       processData: false,
@@ -27,6 +41,8 @@
       }
     });
   };
+
+  //code below checks for image constraints, if image is a jpeg and selected, passes it as an argument to ajax file upload.
 
   $('form').on('submit', function(e) {
     e.preventDefault();
