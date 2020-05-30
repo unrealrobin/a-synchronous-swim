@@ -5,20 +5,21 @@
   //
   // TODO: build the swim command fetcher here
   //
-
-  const commandFetcher = (cb) => {
+  const commandFetcher = () => {
     $.ajax({
-      type: 'GET',
-      url: serverUrl + '/random',
-      data: 'string', //fix this value
+      method: 'GET',
+      url: "http://127.0.0.1:3000" + '/random',
       success: (response) => {
         console.log(response)
+        SwimTeam.move(response);
       },
       error: (err) =>{
-        console.log("Your Request Failed Robin, you are a garbage coder!")
+        console.log("Make more choices on Server")
       }
-    })
+    });
+
   }
+  setInterval(commandFetcher, 500);
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
