@@ -30,6 +30,15 @@ module.exports.router = (req, res, next = ()=>{}) => {
 
     };
 
+    if(req.url === '/file' && req.method === "POST"){
+      // let random = Math.floor(Math.random() * 4);
+      // let arr = ['left', 'down', 'right', 'up'];
+        choice = 'FILL_ME_IN';
+
+    };
+
+
+
   res.end(choice);
   next(); // invoke next() at the end of a request to help with testing!
 };

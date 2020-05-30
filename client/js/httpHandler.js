@@ -19,7 +19,7 @@
     });
 
   }
-  setInterval(commandFetcher, 500);
+  //setInterval(commandFetcher, 10000);
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
@@ -32,14 +32,16 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: serverUrl, //changed from 'FILL_ME_IN'
+      url: serverUrl + '/file', //changed from 'FILL_ME_IN'
       cache: false,
       contentType: false,
       processData: false,
       success: () => {
         // reload the page
+      console.log('File Posted')
         window.location = window.location.href;
-      }
+      },
+      error: () => {'Error'}
     });
   };
 
